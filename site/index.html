@@ -1055,19 +1055,14 @@
           <div class="panel">
             <h3 class="panelTitle">Request a quote</h3>
             <p style="margin:0 0 12px; color:var(--muted)">
-              Tell us what you need — we’ll follow up by email (this form is a demo until connected to email or a CRM).
+              Fill in the details below, then continue — your email app will open with a draft to us (your address is filled in automatically by your mail app).
             </p>
 
-            <form onsubmit="return fakeSubmit(event)">
+            <form onsubmit="return openQuoteMailto(event)">
               <label for="fieldClub" style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">Club /
                 Team name</label>
               <input id="fieldClub" name="club" required autocomplete="organization"
                 placeholder="e.g., Perth Underwater Rugby Club"
-                style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text)" />
-
-              <label for="fieldEmail"
-                style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">Email</label>
-              <input id="fieldEmail" name="email" required type="email" autocomplete="email" placeholder="you@club.com.au"
                 style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text)" />
 
               <label for="fieldNeeds" style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">What do
@@ -1077,7 +1072,7 @@
                 style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text); resize:vertical"></textarea>
 
               <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-                <button class="btn gold" type="submit">Send request</button>
+                <button class="btn gold" type="submit">Open email draft</button>
                 <a class="btn" href="#products">Back to products</a>
               </div>
 
@@ -1228,10 +1223,35 @@
       `);
     }
 
-    function fakeSubmit(e) {
+    function openQuoteMailto(e) {
       e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.textContent = "Submitted (demo). Connect this form to your email or CRM to receive enquiries.";
+      var msg = document.getElementById('formMsg');
+      var to = document.getElementById('emailAddr').textContent.trim();
+      var club = document.getElementById('fieldClub').value.trim();
+      var needs = document.getElementById('fieldNeeds').value.trim();
+      var subject = 'Quote request — ' + (club || 'LucesGear enquiry');
+      var body = [
+        'Hello,',
+        '',
+        'I would like a quote for our club.',
+        '',
+        'Club / team name: ' + club,
+        '',
+        'What we need:',
+        needs,
+        '',
+        '—',
+        'Sent from https://lucesgear.com.au/ (contact form)'
+      ].join('\n');
+      var href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      if (href.length > 2048) {
+        msg.textContent = 'That\'s a bit long for an email link. Please shorten "What do you need?" and try again.';
+        return false;
+      }
+      msg.textContent = '';
+      window.location.href = href;
       return false;
     }
 
