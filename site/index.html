@@ -1,0 +1,1303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LucesGear | UV-Protective Balaclavas, Rashies & Vests</title>
+  <meta name="description"
+    content="Premium UV-protective balaclavas, rashies and vests. Customise with logo, name and number for your club." />
+  <link rel="canonical" href="https://lucesgear.com.au/" />
+  <style>
+    :root {
+      --bg: #07070a;
+      --panel: #0f1016;
+      --text: #f6f6f7;
+      --muted: #b9bbc6;
+      --line: rgba(255, 255, 255, .12);
+      --gold: #c9a24a;
+      --gold2: #f1d17a;
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0, 0, 0, .55);
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(7, 7, 10, .72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    .links a {
+      padding: 8px 10px;
+      border-radius: 999px
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text)
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, .06);
+      border-color: rgba(255, 255, 255, .18)
+    }
+
+    .btn.gold {
+      background: linear-gradient(90deg, #c9a24a 0%, #f1d17a 45%, #c9a24a 100%);
+      border-color: rgba(201, 162, 74, .4);
+      color: #1b1406;
+    }
+
+    .btn.gold:hover {
+      background: linear-gradient(90deg, #d4a94f 0%, #f7db82 45%, #d4a94f 100%);
+      border-color: rgba(241, 209, 122, .55);
+    }
+
+    .btn.gold-outline {
+      background: #0a0a0d;
+      border-color: #c9a24a;
+      color: #f1d17a;
+      background-clip: padding-box;
+    }
+
+    .btn.gold-outline:hover {
+      background: rgba(201, 162, 74, .08);
+      border-color: #f1d17a;
+      color: #f7db82;
+    }
+
+    .burger {
+      display: none;
+      padding: 10px 12px;
+      border: none;
+      background: rgba(201, 162, 74, .1);
+      color: var(--gold2);
+    }
+
+    .burger:hover {
+      background: rgba(201, 162, 74, .2);
+    }
+
+    /* Main — position anchor for hero glow */
+    main {
+      position: relative;
+    }
+
+    /* Full-width golden glow behind hero only — fades before Products */
+    main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72vh;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(100% 80% at 18% 0%, rgba(201, 162, 74, .28), transparent 65%),
+        radial-gradient(80% 65% at 96% 0%, rgba(241, 209, 122, .18), transparent 60%);
+    }
+
+    /* Keep hero content above glow */
+    main>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 96px 0 80px;
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .heroCard {
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .heroLeft {
+      padding: 48px
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #c9a24a 0%, #f1d17a 45%, #c9a24a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border: none;
+      padding: 0;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 14px 0 10px;
+      font-size: 42px;
+      line-height: 1.06
+    }
+
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 56ch
+    }
+
+    .heroActions {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap
+    }
+
+    .mini {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .04);
+      padding: 0.35em 0.7em;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #a0a0b0;
+    }
+
+    .heroMedia {
+      background: #0c0d12;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .heroMedia img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .heroMedia::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .heroMediaInner {
+      position: absolute;
+      inset: auto 28px 28px 28px;
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      z-index: 1;
+    }
+
+    .badge {
+      width: max-content;
+      padding: 9px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, .35);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .35);
+    }
+
+    .badge strong {
+      display: block;
+      font-size: 14px
+    }
+
+    .badge span {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Sections */
+    section {
+      padding: 72px 0
+    }
+
+    .sectionHead {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px
+    }
+
+    .sectionHead h2 {
+      margin: 0;
+      font-size: 28px
+    }
+
+    .sectionHead p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch
+    }
+
+    /* Product grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .03);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .04)
+    }
+
+    .cardImg {
+      aspect-ratio: 4 / 3;
+      background: #0c0d12;
+      position: relative
+    }
+
+    .cardImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.03)
+    }
+
+    .cardBody {
+      padding: 24px;
+    }
+
+    .cardTitle {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cardText {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .chipRow {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px
+    }
+
+    .chip {
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #a0a0b0;
+      border: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(255, 255, 255, .04);
+      padding: 0.35em 0.7em;
+      border-radius: 999px;
+    }
+
+    /* Panel heading — consistent across Customisation, Contact */
+    .panelTitle {
+      margin: 0 0 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cardBtns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    /* Copy-to-clipboard email card */
+    .copyable {
+      cursor: pointer;
+      transition: border-color .18s ease, background .18s ease;
+    }
+
+    .copyable:hover {
+      border-color: rgba(201, 162, 74, .4);
+      background: rgba(201, 162, 74, .06);
+    }
+
+    .copyable:active {
+      transform: scale(.98);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: rgba(201, 162, 74, .15);
+      border: 1px solid rgba(201, 162, 74, .4);
+      backdrop-filter: blur(12px);
+      color: #f1d17a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 9999;
+      letter-spacing: .3px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .twoCol {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .03);
+      padding: 36px;
+    }
+
+    .list {
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--muted)
+    }
+
+    .list li {
+      margin: 8px 0
+    }
+
+    .callout {
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .03);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+
+    .callout strong {
+      color: var(--gold2)
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px
+    }
+
+    .gallery .big {
+      aspect-ratio: 16 / 10
+    }
+
+    .gallery .stack {
+      display: grid;
+      gap: 14px
+    }
+
+    .gallery .thumb {
+      aspect-ratio: 16 / 10
+    }
+
+    /* Hidden extra gallery images — in DOM for lightbox, invisible in grid */
+    .galleryHidden {
+      display: none;
+    }
+
+    /* "View all" overlay on the 3rd tile */
+    .view-more-tile {
+      position: relative;
+    }
+
+    .viewMoreOverlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(7, 7, 10, .62);
+      backdrop-filter: blur(3px);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      pointer-events: none;
+      transition: background .18s ease;
+    }
+
+    .view-more-tile:hover .viewMoreOverlay {
+      background: rgba(7, 7, 10, .72);
+    }
+
+    .mediaBox {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #0c0d12;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .mediaBox::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0);
+      transition: background .18s ease;
+      pointer-events: none;
+    }
+
+    .mediaBox:hover::after {
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .mediaBox img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    /* Lightbox */
+    .lb {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(5, 5, 8, .92);
+      backdrop-filter: blur(18px) saturate(120%);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lb.open {
+      display: flex
+    }
+
+    .lbStage {
+      position: relative;
+      max-width: min(92vw, 1100px);
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #lbImg {
+      display: block;
+      max-width: min(92vw, 1100px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, .75);
+      transition: opacity .2s ease;
+    }
+
+    .lbArrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(20, 20, 26, .7);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+      z-index: 310;
+      flex-shrink: 0;
+    }
+
+    .lbArrow:hover {
+      background: rgba(201, 162, 74, .25);
+      border-color: rgba(201, 162, 74, .45);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    #lbPrev {
+      left: 24px
+    }
+
+    #lbNext {
+      right: 24px
+    }
+
+    .lbClose {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(20, 20, 26, .65);
+      backdrop-filter: blur(8px);
+      color: rgba(255, 255, 255, .65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease;
+      z-index: 310;
+    }
+
+    .lbClose:hover {
+      background: rgba(255, 255, 255, .12);
+      color: #fff
+    }
+
+    .lbCounter {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      color: rgba(255, 255, 255, .4);
+      z-index: 310;
+    }
+
+    /* Footer — golden glow starts flush with the top border line */
+    footer {
+      position: relative;
+      padding: 56px 0 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -5vw;
+      width: 110vw;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(80vw 200% at 10% 120%, rgba(201, 162, 74, .26), transparent 60%),
+        radial-gradient(70vw 180% at 95% 120%, rgba(241, 209, 122, .16), transparent 58%);
+    }
+
+    /* Footer content above glow */
+    footer>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footerGrid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px
+    }
+
+    .small {
+      font-size: 13px
+    }
+
+    .footerLinks {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .footerLinks a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .02)
+    }
+
+    .footerLinks a:hover {
+      background: rgba(255, 255, 255, .04);
+      color: var(--text)
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 36px
+      }
+
+      .heroGrid {
+        grid-template-columns: 1fr
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .twoCol {
+        grid-template-columns: 1fr
+      }
+
+      .gallery {
+        grid-template-columns: 1fr
+      }
+
+      .footerGrid {
+        grid-template-columns: 1fr
+      }
+
+      .links {
+        display: none
+      }
+
+      .burger {
+        display: inline-flex
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top">
+          <div class="logo">
+            <img src="assets/images/logo-lucesgear.png" alt="LucesGear logo" />
+          </div>
+          <div>
+            <div style="font-size:15px">LucesGear</div>
+            <div style="font-size:12px;color:var(--muted);font-weight:700;margin-top:-2px">Balaclavas • Rashies
+            </div>
+          </div>
+        </a>
+
+        <div class="links" aria-label="Primary navigation">
+          <a href="#products">Products</a>
+          <a href="#custom">Customisation</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#products">Explore</a>
+          <a class="btn gold" href="#contact">Request a quote</a>
+          <button class="btn burger" onclick="toggleMenu()" aria-label="Open menu">
+            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" aria-hidden="true">
+              <rect y="0" width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="7" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="14" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" style="display:none; padding:0 0 14px">
+        <div class="panel" style="padding:12px">
+          <div class="footerLinks">
+            <a href="#products" onclick="toggleMenu()">Products</a>
+            <a href="#custom" onclick="toggleMenu()">Customisation</a>
+            <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" aria-label="Main content">
+    <div class="wrap">
+      <div class="hero">
+        <div class="heroGrid">
+          <div class="heroCard heroLeft">
+            <div class="kicker">UV PROTECTION • TEAM READY</div>
+            <h1>Premium balaclavas & rashies — made for clubs.</h1>
+            <p class="sub">
+              Clean, durable sportswear with a premium feel. Customise rashies with your club logo, name and
+              number.
+              (Prices coming soon.)
+            </p>
+
+            <div class="heroActions">
+              <a class="btn gold-outline" href="#products">View products</a>
+              <a class="btn" href="#custom">Custom options</a>
+            </div>
+
+            <div class="mini" aria-label="Highlights">
+              <div class="pill">Comfort fit</div>
+              <div class="pill">UV-protective fabrics</div>
+              <div class="pill">Club customisation</div>
+              <div class="pill">Bulk order friendly</div>
+            </div>
+          </div>
+
+          <div class="heroCard heroMedia" aria-label="Product hero image">
+            <img src="assets/images/hero-balaclavas.png"
+              alt="LucesGear product hero" />
+            <div class="heroMediaInner">
+              <div class="badge">
+                <strong>Custom for your team</strong>
+                <span>Logo • Name • Number</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="products">
+        <div class="sectionHead">
+          <div>
+            <h2>Products</h2>
+            <p>Two core items designed for performance, comfort and a clean club look. (No prices displayed yet.)</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <!-- Balaclavas -->
+          <article class="card">
+            <div class="cardImg">
+              <img src="assets/images/product-balaclavas.png"
+                alt="LucesGear balaclava product photo" loading="lazy" onerror="imgFallback(this)" />
+            </div>
+            <div class="cardBody">
+              <h3 class="cardTitle">Balaclavas</h3>
+              <p class="cardText">Streamlined, breathable coverage for training and competition.</p>
+              <div class="chipRow">
+                <span class="chip">UV protection</span>
+                <span class="chip">Comfort fit</span>
+                <span class="chip">Team colours</span>
+              </div>
+              <div class="cardBtns">
+                <a class="btn gold-outline" href="#custom">Customise</a>
+                <a class="btn" href="#contact">Request availability</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Rashies -->
+          <article class="card">
+            <div class="cardImg">
+              <img src="assets/images/product-rashies.png"
+                alt="LucesGear rashie product photo" loading="lazy" onerror="imgFallback(this)" />
+            </div>
+            <div class="cardBody">
+              <h3 class="cardTitle">Rashies</h3>
+              <p class="cardText">Long-sleeve rash guards built for movement, comfort and durability.</p>
+              <div class="chipRow">
+                <span class="chip">Custom logo</span>
+                <span class="chip">Name + number</span>
+                <span class="chip">Club-ready</span>
+              </div>
+              <div class="cardBtns">
+                <a class="btn gold-outline" href="#custom">Customise</a>
+                <a class="btn" href="#contact">Request a quote</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Vests -->
+          <!-- <article class="card">
+            <div class="cardImg">
+              <img src="assets/images/product-vests.png" alt="LucesGear vest product photo"
+                loading="lazy" onerror="imgFallback(this)" />
+            </div>
+            <div class="cardBody">
+              <h3 class="cardTitle">Vests</h3>
+              <p class="cardText">Lightweight, sleeveless option for layering and team identification.</p>
+              <div class="chipRow">
+                <span class="chip">Custom logo</span>
+                <span class="chip">Numbered</span>
+                <span class="chip">Team sets</span>
+              </div>
+              <div class="cardBtns">
+                <a class="btn gold-outline" href="#custom">Customise</a>
+                <a class="btn" href="#contact">Request a quote</a>
+              </div>
+            </div>
+          </article> -->
+        </div>
+      </section>
+
+      <section id="custom">
+        <div class="sectionHead">
+          <div>
+            <h2>Customisation</h2>
+            <p>Keep it simple: your club identity, done cleanly and consistently across your kit.</p>
+          </div>
+        </div>
+
+        <div class="twoCol">
+          <div class="panel">
+            <h3 class="panelTitle">What you can customise</h3>
+            <ul class="list">
+              <li><strong>Rashies:</strong> logo on chest, plus name & number on the back.</li>
+              <li><strong>Vests:</strong> logo + number (front and/or back depending on your design).</li>
+              <li><strong>Balaclavas:</strong> colour options (and potential logo placement depending on design).</li>
+            </ul>
+            <div style="margin-top:14px" class="callout">
+              <strong>Tip:</strong> Send your logo as a PNG/SVG and your roster list (names + numbers). We’ll align the
+              layout so every piece matches.
+            </div>
+          </div>
+
+          <div class="panel" style="display:flex; flex-direction:column;">
+            <h3 class="panelTitle">How ordering works</h3>
+            <ul class="list">
+              <li>Tell us what items you need (balaclavas / rashies / vests) and quantities.</li>
+              <li>Share colours, sizes, and your customisation details.</li>
+              <li>We confirm a digital mock-up for approval.</li>
+              <li>Production starts after approval — we’ll send timelines with your quote.</li>
+            </ul>
+            <div style="margin-top:auto; padding-top:24px">
+              <a class="btn gold" href="#contact">Request a quote</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="sectionHead">
+          <div>
+            <h2>Gallery</h2>
+            <p>A quick look at the style direction — clean, premium, and club-ready.</p>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <div class="mediaBox big" role="button" aria-label="Open balaclava gallery image" tabindex="0">
+            <img src="assets/images/product-balaclavas.png"
+              alt="LucesGear lifestyle / product photo" loading="lazy" onerror="imgFallback(this)" />
+          </div>
+          <div class="stack">
+            <div class="mediaBox thumb" role="button" aria-label="Open rashie gallery image" tabindex="0">
+              <img src="assets/images/product-rashies.png" alt="Rashie close-up"
+                loading="lazy" onerror="imgFallback(this)" />
+            </div>
+            <div class="mediaBox thumb view-more-tile" id="viewMoreTile" role="button" aria-label="View all photos"
+              tabindex="0">
+              <img src="assets/images/gallery-batch-01.png" alt="First batch close-up"
+                loading="lazy" onerror="imgFallback(this)" />
+              <div class="viewMoreOverlay" id="viewMoreOverlay">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="11" stroke="rgba(255,255,255,.55)" stroke-width="1.5" />
+                  <path d="M8 12h8M12 8l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                <span>View all photos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden images: visible in lightbox only, not in the grid -->
+        <!-- VESTS — hidden for now, uncomment to restore
+        <div class="galleryHidden" aria-hidden="true">
+          <div class="mediaBox">
+            <img src="assets/images/product-vests.png" alt="Vest close-up" loading="lazy"
+              onerror="imgFallback(this)" />
+          </div>
+        </div>
+        -->
+      </section>
+
+      <section id="contact">
+        <div class="sectionHead">
+          <div>
+            <h2>Contact</h2>
+            <p>Send your club details and what you need. Prices will be shared via quote (no public pricing yet).</p>
+          </div>
+        </div>
+
+        <div class="twoCol">
+          <div class="panel">
+            <h3 class="panelTitle">Request a quote</h3>
+            <p style="margin:0 0 12px; color:var(--muted)">
+              Tell us what you need — we’ll follow up by email (this form is a demo until connected to email or a CRM).
+            </p>
+
+            <form onsubmit="return fakeSubmit(event)">
+              <label for="fieldClub" style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">Club /
+                Team name</label>
+              <input id="fieldClub" name="club" required autocomplete="organization"
+                placeholder="e.g., Perth Underwater Rugby Club"
+                style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text)" />
+
+              <label for="fieldEmail"
+                style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">Email</label>
+              <input id="fieldEmail" name="email" required type="email" autocomplete="email" placeholder="you@club.com.au"
+                style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text)" />
+
+              <label for="fieldNeeds" style="display:block; font-weight:700; font-size:13px; margin:10px 0 6px">What do
+                you need?</label>
+              <textarea id="fieldNeeds" name="needs" required rows="5"
+                placeholder="Items + quantities, sizes, colours, and customisation (logo/name/number)."
+                style="width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(0,0,0,.25); color:var(--text); resize:vertical"></textarea>
+
+              <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+                <button class="btn gold" type="submit">Send request</button>
+                <a class="btn" href="#products">Back to products</a>
+              </div>
+
+              <p id="formMsg" class="small" style="margin:10px 0 0; color:var(--muted)"></p>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3 class="panelTitle">Direct contact</h3>
+            <p style="margin:0 0 12px; color:var(--muted)">
+              Prefer email? Reach us at the address below (click to copy). Add social links here when you’re ready.
+            </p>
+
+            <div class="callout copyable" style="margin-top:32px" onclick="copyEmail()" role="button" aria-label="Copy email address to clipboard" tabindex="0">
+              <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+                <div>
+                  <div style="font-weight:900; color:var(--muted); letter-spacing:.3px">Email <span style="font-size:11px; opacity:.6">(click to copy)</span></div>
+                  <div style="font-weight:800; color:var(--text)" id="emailAddr">info@lucesgear.com.au</div>
+                </div>
+                <div>
+                  <div style="font-weight:900; color:var(--muted); letter-spacing:.3px">Location</div>
+                  <div style="font-weight:800; color:var(--text)">Australia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- end .wrap -->
+
+  </main>
+
+
+  <footer>
+    <div class="wrap">
+      <div class="footerGrid">
+        <div>
+          <div class="brand" style="margin-bottom:8px">
+            <div class="logo">
+              <img src="assets/images/logo-lucesgear.png" alt="LucesGear logo" />
+            </div>
+            <div>
+              <div style="font-weight:900; color:var(--text)">LucesGear</div>
+              <div class="small">UV-protective balaclavas, rashies &amp; vests for clubs.</div>
+            </div>
+          </div>
+          <div class="small">© <span id="year"></span> LucesGear. All rights reserved.</div>
+        </div>
+        <div style="display:flex; align-items:flex-start; justify-content:flex-end">
+          <div class="footerLinks">
+            <a href="#products">Products</a>
+            <a href="#custom">Customisation</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lbPrev" class="lbArrow" aria-label="Previous image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+    <div class="lbStage" id="lbStage">
+      <img id="lbImg" src="" alt="" />
+    </div>
+    <button id="lbNext" class="lbArrow" aria-label="Next image">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+    <button class="lbClose" id="lbClose" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+    <div class="lbCounter" id="lbCounter"></div>
+  </div>
+
+  <!-- Copy toast notification -->
+  <div class="toast" id="copyToast">Copied to clipboard ✓</div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const el = document.getElementById('mobileMenu');
+      el.style.display = (el.style.display === 'none' || !el.style.display) ? 'block' : 'none';
+    }
+
+    /* Copy email to clipboard + show toast */
+    function copyEmail() {
+      var email = document.getElementById('emailAddr').textContent.trim();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showCopyToast);
+      } else {
+        /* Fallback for older browsers */
+        var ta = document.createElement('textarea');
+        ta.value = email;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showCopyToast();
+      }
+    }
+
+    function showCopyToast() {
+      var toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+    }
+
+    /* Keyboard support for the copyable card */
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('copyable')) {
+        e.preventDefault();
+        copyEmail();
+      }
+    });
+
+    function imgFallback(img) {
+      img.onerror = null;
+      img.style.objectFit = "contain";
+      img.style.padding = "14px";
+      img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`
+        <svg xmlns='http://www.w3.org/2000/svg' width='1200' height='900'>
+          <defs>
+            <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+              <stop offset='0' stop-color='rgba(201,162,74,.35)'/>
+              <stop offset='1' stop-color='rgba(255,255,255,.06)'/>
+            </linearGradient>
+          </defs>
+          <rect width='100%' height='100%' fill='rgb(12,13,18)'/>
+          <rect x='40' y='40' width='1120' height='820' rx='28' fill='url(#g)' stroke='rgba(255,255,255,.18)'/>
+          <text x='80' y='160' fill='white' font-size='48' font-family='system-ui, -apple-system, Segoe UI' font-weight='800'>Image placeholder</text>
+          <text x='80' y='230' fill='rgba(255,255,255,.7)' font-size='28' font-family='system-ui, -apple-system, Segoe UI'>Replace with your product photo</text>
+        </svg>
+      `);
+    }
+
+    function fakeSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('formMsg');
+      msg.textContent = "Submitted (demo). Connect this form to your email or CRM to receive enquiries.";
+      return false;
+    }
+
+    /* ---------- Lightbox ---------- */
+    (function () {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lbImg');
+      var lbStage = document.getElementById('lbStage');
+      var lbPrev = document.getElementById('lbPrev');
+      var lbNext = document.getElementById('lbNext');
+      var lbClose = document.getElementById('lbClose');
+      var lbCounter = document.getElementById('lbCounter');
+
+      // All images: visible gallery first, then hidden extras
+      var imgs = Array.from(document.querySelectorAll('.gallery .mediaBox img, .galleryHidden .mediaBox img'));
+      var idx = 0;
+
+      function show(i) {
+        idx = (i + imgs.length) % imgs.length;
+        lbImg.style.opacity = '0';
+        setTimeout(function () {
+          lbImg.src = imgs[idx].src;
+          lbImg.alt = imgs[idx].alt || '';
+          lbImg.style.opacity = '1';
+        }, 100);
+        lbCounter.textContent = (idx + 1) + ' / ' + imgs.length;
+      }
+
+      function open(i) {
+        show(i);
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      // Wire every visible gallery mediaBox to open at its own image index
+      imgs.forEach(function (img, i) {
+        var box = img.closest ? img.closest('.mediaBox') : img.parentElement;
+        if (box && box.closest && box.closest('.gallery')) {
+          box.addEventListener('click', function () { open(i); });
+        }
+      });
+
+      // Arrow controls
+      lbPrev.addEventListener('click', function (e) { e.stopPropagation(); show(idx - 1); });
+      lbNext.addEventListener('click', function (e) { e.stopPropagation(); show(idx + 1); });
+      lbClose.addEventListener('click', function (e) { e.stopPropagation(); close(); });
+
+      // Click backdrop to close
+      lb.addEventListener('click', function (e) {
+        if (!lbStage.contains(e.target)) close();
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'ArrowLeft') { show(idx - 1); }
+        if (e.key === 'ArrowRight') { show(idx + 1); }
+        if (e.key === 'Escape') { close(); }
+      });
+    })();
+  </script>
+</body>
+
+</html>

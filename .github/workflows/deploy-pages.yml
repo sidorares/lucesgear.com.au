@@ -1,0 +1,46 @@
+# Deploys the static site in /site to GitHub Pages.
+#
+# Repository setup (one-time):
+# 1. Settings → Pages → Build and deployment → Source: GitHub Actions.
+# 2. On first run, approve the "github-pages" environment if prompted
+#    (Settings → Environments → github-pages).
+# 3. Custom domain: site/CNAME is deployed with the site. In Pages settings add the
+#    same hostname and configure DNS (apex A records or www CNAME to USERNAME.github.io).
+
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
