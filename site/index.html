@@ -400,6 +400,21 @@
       padding: 24px;
     }
 
+    .cardHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+
+    }
+
+    .price {
+      color: #f7db82;
+      font-weight: 700;
+      font-size: 32px;
+      white-space: nowrap;  
+    }
+
     .cardTitle {
       margin: 0 0 8px;
       font-size: 18px;
@@ -858,7 +873,6 @@
             <p class="sub">
               Clean, durable sportswear with a premium feel. Customise rashies with your club logo, name and
               number.
-              (Prices coming soon.)
             </p>
 
             <div class="heroActions">
@@ -891,7 +905,7 @@
         <div class="sectionHead">
           <div>
             <h2>Products</h2>
-            <p>Two core items designed for performance, comfort and a clean club look. (No prices displayed yet.)</p>
+            <p>Two core items designed for performance, comfort and a clean club look.</p>
           </div>
         </div>
 
@@ -903,7 +917,9 @@
                 alt="LucysGear balaclava product photo" loading="lazy" onerror="imgFallback(this)" />
             </div>
             <div class="cardBody">
-              <h3 class="cardTitle">Balaclavas</h3>
+              <div class="cardHeader">
+              <h3 class="cardTitle">Balaclavas</h3> <span class="price">$15</span>
+            </div>
               <p class="cardText">Streamlined, breathable coverage for training and competition.</p>
               <div class="chipRow">
                 <span class="chip">UV protection</span>
@@ -924,7 +940,9 @@
                 alt="LucysGear rashie product photo" loading="lazy" onerror="imgFallback(this)" />
             </div>
             <div class="cardBody">
-              <h3 class="cardTitle">Rashies</h3>
+              <div class="cardHeader">
+              <h3 class="cardTitle">Rashies</h3> <span class="price">$35</span>
+            </div> 
               <p class="cardText">Long-sleeve rash guards built for movement, comfort and durability.</p>
               <div class="chipRow">
                 <span class="chip">Custom logo</span>
@@ -1047,7 +1065,7 @@
         <div class="sectionHead">
           <div>
             <h2>Contact</h2>
-            <p>Send your club details and what you need. Prices will be shared via quote (no public pricing yet).</p>
+            <p>Send your club details and what you need. Prices will be shared via quote.</p>
           </div>
         </div>
 
